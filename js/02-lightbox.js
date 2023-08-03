@@ -9,11 +9,18 @@ function createMarkup(arr) {
    <a class="gallery__link" href="${original}">
       <img class="gallery__image"
       src="${preview}" 
-      alt="${description}" />
+      alt="${description}"
+      title="${description}"
+       />
    </a>
 </li>`).join("")
 }
 
 container.insertAdjacentHTML("beforeend", createMarkup(galleryItems));
+container.addEventListener(`click`, handlerProductBigPicture)
 
+function handlerProductBigPicture(evt) {
+    var lightbox = new SimpleLightbox('.gallery a');
+    SimpleLightbox.captionDelay = 250;
+}
 

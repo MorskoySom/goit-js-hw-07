@@ -22,7 +22,7 @@ container.addEventListener(`click`, handlerProductBigPicture)
 
 function handlerProductBigPicture(evt) {
     evt.preventDefault;    
-    const bigPicture = evt.target.dataset.source;    
+    const bigPicture = evt.target.dataset.source;   
     const instance = basicLightbox.create(`<img src='${bigPicture}'>`);
     instance.show();
     window.addEventListener(`keydown`, toExit);
