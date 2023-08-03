@@ -18,9 +18,24 @@ function createMarkup(arr) {
 }
 
 container.insertAdjacentHTML("beforeend", createMarkup(galleryItems));
-container.addEventListener(`click`, handlerProductClick)
+container.addEventListener(`click`, handlerProductBigPicture)
 
-function handlerProductClick(evt) {
-    console.log(evt.target);
-    console.log(evt.currentTarget);
+function handlerProductBigPicture(evt) {
+    evt.preventDefault;    
+    const bigPicture = evt.target.dataset.source;    
+    const instance = basicLightbox.create(`<img src='${bigPicture}'>`);
+    instance.show();
+    window.addEventListener(`keydown`, toExit);
+    function toExit(event) {
+    if (event.code === `Escape`) {
+        closeModal();
+    }
 }
+    function closeModal() {
+        window.removeEventListener(`keydown`, toExit);
+        instance.close();
+}
+}
+
+
+ 
