@@ -5,7 +5,7 @@ console.log(galleryItems);
 const container = document.querySelector(`.gallery`);
 
 function createMarkup(arr) {
-    return arr.map(({preview, original, description}) => `<li class="gallery__item">
+    return arr.map(({ preview, original, description }) => `<li class="gallery__item">
   <a class="gallery__link" href="${original}">
     <img
       class="gallery__image"
@@ -14,6 +14,13 @@ function createMarkup(arr) {
       alt="${description}"
     />
   </a>
-</li>`)
+</li>`).join("")
 }
-createMarkup(galleryItems);
+
+container.insertAdjacentHTML("beforeend", createMarkup(galleryItems));
+container.addEventListener(`click`, handlerProductClick)
+
+function handlerProductClick(evt) {
+    console.log(evt.target);
+    console.log(evt.currentTarget);
+}
