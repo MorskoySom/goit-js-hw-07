@@ -21,7 +21,10 @@ container.insertAdjacentHTML("beforeend", createMarkup(galleryItems));
 container.addEventListener(`click`, handlerProductBigPicture)
 
 function handlerProductBigPicture(evt) {
-    evt.preventDefault;    
+    evt.preventDefault();
+    if (evt.currentTarget === evt.target) {
+        return
+    };
     const bigPicture = evt.target.dataset.source;   
     const instance = basicLightbox.create(`<img src='${bigPicture}'>`);
     instance.show();

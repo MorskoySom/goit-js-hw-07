@@ -17,10 +17,6 @@ function createMarkup(arr) {
 }
 
 container.insertAdjacentHTML("beforeend", createMarkup(galleryItems));
-container.addEventListener(`click`, handlerProductBigPicture)
 
-function handlerProductBigPicture(evt) {
-    var lightbox = new SimpleLightbox('.gallery a');
-    SimpleLightbox.captionDelay = 250;
-}
-
+var lightbox = new SimpleLightbox('.gallery a');
+SimpleLightbox.captionDelay = 250;
