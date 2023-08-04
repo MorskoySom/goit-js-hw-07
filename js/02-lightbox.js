@@ -9,8 +9,7 @@ function createMarkup(arr) {
    <a class="gallery__link" href="${original}">
       <img class="gallery__image"
       src="${preview}" 
-      alt="${description}"
-      title="${description}"
+      alt="${description}"      
        />
    </a>
 </li>`).join("")
@@ -18,5 +17,7 @@ function createMarkup(arr) {
 
 container.insertAdjacentHTML("beforeend", createMarkup(galleryItems));
 
-var lightbox = new SimpleLightbox('.gallery a');
-SimpleLightbox.captionDelay = 250;
+var lightbox = new SimpleLightbox('.gallery a', {
+    captionDelay: 250,
+    captionsData: `alt`,
+} );
